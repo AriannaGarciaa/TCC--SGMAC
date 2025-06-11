@@ -35,11 +35,11 @@
                 <td class="py-2 px-4 border">{{ $manutencao->Problema }}</td>
                 <td class="py-2 px-4 border">{{ $manutencao->equipamentos->Marca}}</td>
                 <td class="py-2 px-4 border">{{ $manutencao->local->bloco }} - {{ $manutencao->local->sala }}</td> 
-                <td class="py-2 px-4 border">{{ $manutencao->solucao }}</td>
+                <td class="py-2 px-4 border">{{ $manutencao->Solucao }}</td>
                 <td class="py-2 px-4 border">{{ $manutencao->Status }}</td>
                 <td class="py-2 px-4 border">{{ $manutencao->TipoManutencao }}</td>
-                <td class="py-2 px-4 border">{{ $manutencao->DataAbertura->format('d/m/Y') }}</td>
-                <td class="py-2 px-4 border">{{ $manutencao->DataUltimaAtualizacao->format('d/m/Y') }}</td>
+                <td class="py-2 px-4 border">{{ \Carbon\Carbon::parse($manutencao->DataAbertura)->format('d/m/Y') }}</td>
+                <td class="py-2 px-4 border">{{ \Carbon\Carbon::parse($manutencao->DataUltimaAtualizacao)->format('d/m/Y') }}</td>
 
                 <td class="py-2 px-4 border">{{ $manutencao->NumeroDaOrdemDeServico }}</td>
                 <td class="py-2 px-4">

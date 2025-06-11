@@ -8,7 +8,7 @@
         <p class="mb-3"><strong>BTU:</strong> {{ $equipamento->BTU }}</p>
         <p class="mb-3"><strong>Marca:</strong> {{ $equipamento->Marca }}</p>
         <p class="mb-3"><strong>Ano de Fabricação:</strong> {{ $equipamento->anoFabricacao }}</p>
-        <p class="mb-3"><strong>Data de Instalação:</strong> {{ $equipamento->dataInstalacao }}</p>
+        <p class="mb-3"><strong>Data de Instalação:</strong> {{ \Carbon\Carbon::parse($equipamento->dataInstalacao)->format('d/m/Y') }}</p>
         <p class="mb-3"><strong>Status:</strong> {{ $equipamento->status }}</p>
         <div class="flex justify-between mt-6">
             <a href="{{ route('equipamentos.index') }}" class="w-1/2 bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-400 mr-2 text-center">Voltar</a>

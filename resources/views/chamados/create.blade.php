@@ -12,7 +12,14 @@
 
         <div class="mb-3">
             <label for="Local" class="form-label block text-gray-700 font-semibold mb-2">Local (Bloco/Sala):</label>
-            <input type="text" name="Local" id="Local"class="form-control w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"  required>
+            <select name="Local" id="Local"class="form-control w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"  required>
+                <option value="">Selecione o local </option>
+                @foreach($local as $local)
+                <option value="{{ $local->id }}">{{ $local->bloco }} - {{ $local->sala }}</option>
+                @endforeach
+
+            </select>
+                
         </div>
 
         <div class="mb-3">

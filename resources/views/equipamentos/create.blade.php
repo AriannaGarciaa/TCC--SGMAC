@@ -23,14 +23,18 @@
             <input type="text" name="Marca" id="Marca" class="form-control w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
         </div>
         
-        <div class="mb-3">
-            <label for="anoFabricacao" class="block text-gray-700 font-bold mb-2">Ano de Fabricação</label>
-            <input type="number" name="anoFabricacao" id="anoFabricacao" class="form-control w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-        </div>
+      <div class="mb-3">
+    <label for="anoFabricacao" class="block text-gray-700 font-bold mb-2">Ano de Fabricação</label>
+    <select name="anoFabricacao" id="anoFabricacao" class="form-control w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        @for ($ano = date('Y'); $ano >= 2000; $ano--)
+            <option value="{{ $ano }}">{{ $ano }}</option>
+        @endfor
+    </select>
+</div>
         
         <div class="mb-3">
             <label for="dataInstalacao" class="block text-gray-700 font-bold mb-2">Data de Instalação</label>
-            <input type="date" name="dataInstalacao" id="dataInstalacao" class="form-control w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            <input type="date" name="dataInstalacao" id="dataInstalacao"  max="{{ date('Y-m-d') }}" class="form-control w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
         </div>
         
         <div class="mb-3">

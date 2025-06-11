@@ -6,14 +6,17 @@ use App\Models\Chamados;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Local;
 
 
 class ChamadosController extends Controller
 {
     // Formulário externo (sem login)
     public function createExterno()
+
     {
-        return view('chamadosExternos.create');
+       $local = Local::all(); 
+    return view('chamados.create', compact('local')); 
     }
 
     // Salvar chamado vindo de formulário externo
@@ -53,7 +56,8 @@ public function showExterno($id)
     // Exibe o formulário de criação (tela interna)
     public function create()
     {
-        return view('chamados.create');
+        $local = Local::all(); 
+        return view('chamados.create',compact('local'));
     }
 
     // Salva um novo chamado (via painel interno)

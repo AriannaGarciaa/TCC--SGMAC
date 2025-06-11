@@ -10,6 +10,7 @@ use App\Models\Equipamentos;
 use Illuminate\Http\Request;
  use Barryvdh\DomPDF\Facade\Pdf;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
+use Illuminate\Support\Facades\DB;
 
 class ManutencoesController extends Controller
 {
@@ -45,6 +46,19 @@ class ManutencoesController extends Controller
         $manutencao->DataAbertura = $request->DataAbertura;
         $manutencao->DataUltimaAtualizacao = $request->DataUltimaAtualizacao;
         $manutencao->NumeroDaOrdemDeServico = $request->NumeroDaOrdemDeServico;
+
+        //verifica se o registro já existe
+       $manutencao = Manutencoes::firstOrNew($manutencao);
+
+              //se o registro não existir, será criadp, caso contrário, será retornado o registro existente
+
+       if($manutencao->exists) {
+        return redirect()->back()->with('error', 'Manutenção já existe!');
+       }else{
+        $manutencao->save();
+        return redirect()->back()->with('success', 'Manutenção criada com sucesso!');
+       }
+
 
         $manutencao->save();
 

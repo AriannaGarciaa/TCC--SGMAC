@@ -10,12 +10,21 @@ use App\Http\Controllers\ManutencoesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Rotas de chamados externos (acesso público)
+// Formulário externo
+Route::get('/chamadosExternos/create', [ChamadosController::class, 'createExterno'])->name('chamadosExternos.create');
+Route::post('/chamadosExternos', [ChamadosController::class, 'storeExterno'])->name('chamadosExternos.store');
+Route::get('/chamadosExternos/{chamado}', [ChamadosController::class,'showExterno'])->name('chamadosExternos.show');
 
+
+//Gerar relatorio
+Route::get('/manutencoes/relatorio', [ManutencoesController::class, 'relatorio'])->name('manutencoes.relatorio');
 
 
 Route::get('/dashboard', function () {
@@ -82,15 +91,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Rotas de chamados externos (acesso público)
-// Formulário externo
-Route::get('/chamadosExternos/create', [ChamadosController::class, 'createExterno'])->name('chamadosExternos.create');
-Route::post('/chamadosExternos', [ChamadosController::class, 'storeExterno'])->name('chamadosExternos.store');
-Route::get('/chamadosExternos/{chamado}', [ChamadosController::class,'showExterno'])->name('chamadosExternos.show');
 
-
-//Gerar relatorio
-Route::get('/manutencoes/relatorio', [ManutencoesController::class, 'relatorio'])->name('manutencoes.relatorio');
 
 
 require __DIR__.'/auth.php';

@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>@yield('title', 'Relatório PDF')</title>
+    <meta charset="utf-8">
+    <title>@yield('title', 'Relatório')</title>
     <style>
         body {
             font-family: sans-serif;
-            font-size: 12px;
-            color: #000;
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 30px;
+            color: #111827;
         }
 
-        .header {
+        .logo {
             text-align: center;
-            margin-bottom: 20px;
+            font-weight: bold;
+            color: #16a34a;
+            margin-bottom: 10px;
         }
 
-        .header img {
-            max-height: 80px;
+        h1 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 30px;
         }
 
-        .table {
-            width: 100%;
-            border-collapse: collapse;
+        .manutencao {
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #d1d5db;
+            padding-bottom: 15px;
         }
 
-        .table th, .table td {
-            border: 1px solid #000;
-            padding: 6px;
-            text-align: left;
+        .manutencao h2 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2563eb;
         }
 
-        .table th {
-            background-color: #f0f0f0;
+        .field {
+            margin-bottom: 4px;
+        }
+
+        .label {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="{{ public_path('images/logo-ifms.png') }}" alt="Logo IFMS">
-        <h2>@yield('title')</h2>
-    </div>
+    <img src="{{('imgs/ifmshorizontal.png') }}" alt="Logo IFMS" style="width: 300px; display: block; margin: 0 auto 20px;">
+    <h1>@yield('title', 'Relatório')</h1>
 
     @yield('content')
 

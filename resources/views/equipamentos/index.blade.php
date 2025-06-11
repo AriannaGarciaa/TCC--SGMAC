@@ -33,7 +33,7 @@
                 <td class="py-2 px-4 border">{{ $equipamento->BTU }}</td>
                 <td class="py-2 px-4 border">{{ $equipamento->Marca }}</td>
                 <td class="py-2 px-4 border">{{ $equipamento->anoFabricacao }}</td>
-                <td class="py-2 px-4 border">{{ $equipamento->dataInstalacao }}</td>
+                <td class="py-2 px-6 border">{{ \Carbon\Carbon::parse($equipamento->dataInstalacao)->format('d/m/Y') }}</td>
                 <td class="py-2 px-4 border">{{ $equipamento->status }}</td>
                 <td class="py-2 px-4 border">{{ $equipamento->local->bloco }} - {{ $equipamento->local->sala }}</td>
                 <td class="py-2 px-4">
