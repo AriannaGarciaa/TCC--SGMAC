@@ -39,7 +39,7 @@
                 <!-- Card Manutenções -->
                 
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <h3 class="text-xl font-bold text-blue-900 mb-4">MANUTENÇÕES PENDENTES</h3>
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">MANUTENÇÕES </h3>
                         @if(isset($manutencoes) && count($manutencoes))
                             <ul class="text-gray-700 text-left w-full max-w-2xl">
                                 @foreach($manutencoes as $manutencao)

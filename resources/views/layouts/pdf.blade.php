@@ -49,7 +49,7 @@
 </head>
 <body>
 
-    <img src="{{('imgs/ifmshorizontal.png') }}" alt="Logo IFMS" style="width: 300px; display: block; margin: 0 auto 20px;">
+
     <h1>@yield('title', 'Relatório')</h1>
 
     @yield('content')

@@ -7,6 +7,7 @@ use App\Http\Controllers\ChamadosController;
 use App\Http\Controllers\TecnicoManutencaoController;
 use App\Http\Controllers\ChamadosExternosController;
 use App\Http\Controllers\ManutencoesController;
+use App\Http\Controllers\RelatoriosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -86,6 +87,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/manutencoes/{manutencao}/edit', [ManutencoesController::class, 'edit'])->name('manutencoes.edit');
     Route::put('/manutencoes/{manutencao}', [ManutencoesController::class, 'update'])->name('manutencoes.update');
     Route::delete('/manutencoes/{manutencao}', [ManutencoesController::class, 'destroy'])->name('manutencoes.destroy');
+
+    // Rotas para relatorios
+
+    Route::get('/relatorios', [RelatoriosController::class, 'index'])->name('relatorios.index');
+
 
     
 });
